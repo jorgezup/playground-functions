@@ -24,16 +24,14 @@ function generatePhoneNumber(numbers) {
       if (numbers[i] < 0 || numbers[i] > 9) {
         return false;
       }
-      else {
-        if (count[numbers[i]]) {
-          count[numbers[i]] += 1;
-          if (count[numbers[i]] > 2) {
-            return false;
-          }
+
+      if (count[numbers[i]]) {
+        count[numbers[i]] += 1;
+        if (count[numbers[i]] > 2) {
+          return false;
         }
-        else {
-          count[numbers[i]] = 1;
-        }
+      } else {
+        count[numbers[i]] = 1;
       }
     }
     return true;
@@ -45,13 +43,11 @@ function generatePhoneNumber(numbers) {
       if (i === 0) {
         newNumber += '(';
         newNumber += numbers[i];
-      }
-      else if (i === 2) {
+      } else if (i === 2) {
         newNumber += ')';
         newNumber += ' ';
         newNumber += numbers[i];
-      }
-      else if (i === 7) {
+      } else if (i === 7) {
         newNumber += '-';
         newNumber += numbers[i];
       } else {
@@ -68,37 +64,31 @@ function generatePhoneNumber(numbers) {
   if (checkArray(numbers)) {
     return generate(numbers);
   }
-  else {
-    return 'não é possível gerar um número de telefone com esses valores';
-  }
 
-
-
+  return 'não é possível gerar um número de telefone com esses valores';
 }
 
 // Desafio 12
 function triangleCheck(lineA, lineB, lineC) {
   if (lineA < (lineB + lineC) && lineA < Math.abs(lineB - lineC)) {
-      return false;
+    return false;
   }
-  else if (lineB < (lineA + lineB) && lineB < Math.abs(lineA - lineC)) {
-      return false;
+  if (lineB < (lineA + lineB) && lineB < Math.abs(lineA - lineC)) {
+    return false;
   }
-  else if (lineC < (lineA + lineB) && lineC < Math.abs(lineA - lineB)) {
-      return false;
+  if (lineC < (lineA + lineB) && lineC < Math.abs(lineA - lineB)) {
+    return false;
   }
-  else {
-      return true;
-  }
+  return true;
 }
 
 // Desafio 13
 function hydrate(str) {
   let quantityOfWater = 0;
   for (let letter of str.split('')) {
-      if (letter in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]) {
-        quantityOfWater += Number(letter);
-      }
+    if (letter in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]) {
+      quantityOfWater += Number(letter);
+    }
   }
   if (quantityOfWater === 1) {
     return `${quantityOfWater} copo de água`;
