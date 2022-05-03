@@ -20,7 +20,7 @@ function generatePhoneNumber(numbers) {
   function checkArray(numbers) {
     let count = {};
 
-    for (let i = 0; i < numbers.length; i++) {
+    for (let i = 0; i < numbers.length; i += 1) {
       if (numbers[i] < 0 || numbers[i] > 9) {
         return false;
       }
@@ -39,7 +39,7 @@ function generatePhoneNumber(numbers) {
 
   function generate(numbers) {
     let newNumber = '';
-    for (let i = 0; i < numbers.length; i++) {
+    for (let i = 0; i < numbers.length; i +=1 ) {
       if (i === 0) {
         newNumber += '(';
         newNumber += numbers[i];
